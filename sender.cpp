@@ -41,7 +41,7 @@ void init(int& shmid, int& msqid, void*& sharedMemPtr)
         perror("shmget");
     }
     
-    /* TODO: Attach to the shared memory */
+    /* Attach to the shared memory */
     sharedMemPtr = shmat(shmid, NULL, 0);
     if(sharedMemPtr < 0)
     {
@@ -49,7 +49,7 @@ void init(int& shmid, int& msqid, void*& sharedMemPtr)
         exit(-1);
     }
     
-    /* TODO: Attach to the message queue */
+    /* Attach to the message queue */
     msqid = msgget(key, 0666);
     if (msqid < 0)
     {
